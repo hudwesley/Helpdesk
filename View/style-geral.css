@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Barlow:wght@200&family=DM+Sans:opsz,wght@9..40,300&family=Duru+Sans&family=Mooli&family=Noto+Sans+JP:wght@200&family=Public+Sans:ital,wght@0,100;1,200&family=Questrial&family=Roboto:wght@300&family=Ruwudu&family=Spline+Sans&display=swap');
+/*
+
+CSS padrão
+
+*/
+
+*{
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    list-style-type: none;
+    text-decoration: none;
+}
+body{
+    margin: 0;
+    background-color: #fbfbfb;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url(/Helpdesk/Image/logo-prefeitura.png);
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    background-position: center;
+    overflow: hidden;
+}
+
+
+/*
+
+CSS para o menu lateral
+
+*/
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    width: 4vw;
+    background-color: #333; /* Cor de fundo de exemplo */
+    color: #fff; /* Cor do texto de exemplo */
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.25);
+    position: fixed; /* Fixa o menu no lado esquerdo da tela */
+    top: 0;
+    left: 0;
+}
+.logo-sistema, .item-logout{
+    text-align: center;
+}
+.logo-sistema img {
+    width: 50%; /* Garante que a imagem ocupe 100% da largura da div */
+    height: auto; /* Mantém a proporção da imagem */
+    padding: 5px;
+}
+
+.opcoes-menu {
+    text-align: center; 
+}
+
+.opcoes-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.opcoes-menu li {
+    margin-bottom: 10px; /* Espaçamento entre os itens do menu */
+    font-size: 15px;
+    padding: 10px;        
+}
+
+.logo-sistema img{
+    width: 40px;
+    height: 40px;
+}
+
+.opcoes-menu a {
+    color: #fff; /* Cor do texto de exemplo */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 15px 20px;
+    background-color: #30dc78;
+}
+
+.opcoes-menu a:hover{
+    background-color: #039941;
+    border-radius: 15px 20px;
+}
+
+.item-logout a{
+    font-size: 20px;
+    background-color: #ff0019;
+    color: #fff;
+    padding: 5px;
+    border-radius: 15px 20px;
+}
+
+.item-logout a:hover{
+    background-color: #ea2438;
+}
+
+/*
+
+CSS homepage - Servidor e Administrador
+
+*/
+
+.div-conteudo-principal{
+    width: 90vw;
+    height: auto;
+    margin:2vh 0 0 6vw;
+}
+
+
+/* Cabeçalho */
+
+.div-cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.opcoes-usuario img{
+    width: 40px;
+    height: auto;
+    filter: drop-shadow(3px 5px 4px #333);
+}
+
+.opcoes-usuario img:hover{
+    transform: scale(1.1);
+}
+
+.div-boas-vindas{
+    width: 35vw;
+    height: auto;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 0.9;
+    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
+.div-mensagem, .div-previsao-tempo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+.div-imagem-suporte img{
+    width: 40px;
+    height: auto;
+    padding: 5px;
+}
+
+.div-icone-tempo img{
+    width: 30px;
+    height: auto;
+    padding: 5px;
+}
+
+
+/* Opções de chamados - cartão de cada categoria */
+.div-opcoes-chamados{
+    width: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-wrap: wrap;
+    margin: 30px; 
+}
+
+.cartao-chamado{
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-weight: 900;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 10px 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0;
+}
+
+.cartao-chamado:hover{
+    transform: scale(1.04);
+    border: 2px solid #30dc78;
+}
+
+.icone-chamado img{
+    width: 110px;
+    height: auto;
+}
+
+.categoria-chamado{
+    font-weight: 900;
+    font-size: 18px;
+}
+
+/* Cartão descrição chamado */
+
+.div-descricao-chamados{
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.campo-descricao-chamado{
+    width: 20%;
+    padding: 5px;
+    height: auto;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 10px 10px; 
+    display: block;    
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.campo-descricao-chamado:hover{
+    border: 1px solid #30dc78;
+    transform: scale(1.05);
+}
+
+.texto-descricao{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.titulo-descricao{
+    height: 20%;
+    color: #30dc78;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 40px;
+    font-style: italic;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Botão de suporte ao usuário e modal de opções */
+
+.botao-suporte{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.div-suporte{
+    position: fixed;
+    right: 10px;
+    bottom: 60px;
+}
+
+.div-opcoes-suporte{
+    width: 180px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #30dc78;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 10px 10px; 
+    display: block;   
+    border-radius: 0;
+}
+
+.opcao{
+    width: 90%;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 10px 2px;  
+    border-radius: 0;
+}
+
+.opcao a{
+    display: flex;  
+    align-items: center;
+    justify-content: left;
+    font-weight: bold;
+    color: #30dc78;
+}
+
+.opcao:hover{
+    border: 1px solid #30dc78;
+    transform: scale(1.02);
+}
+
+.mensagem-opcao{
+    color: #30dc78;
+    font-style: italic;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.icone-opcao img{
+    width: 30px;
+    height: auto;
+    padding: 3px;
+}
+
+.icone-button img{
+    width: 30px;
+    height: auto;
+    padding: 5px;
+}
+
+.nome-opcao{
+    font-size: 10px;
+}
+
+.botao-suporte button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 7px;
+    border-radius: 15px;
+    background: #30dc78;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.botao-suporte button:hover{
+    background-color: rgb(43, 213, 114);
+    transform: scale(1.05);
+}
+.texto-button{
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: normal;
+}
+
+/*
+
+RESPONSIVIDADE
+
+*/
+
+/* Menu */
+
