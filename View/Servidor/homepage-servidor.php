@@ -246,8 +246,6 @@ session_start();
 
         divSuporte.style.display = isHidden ? 'block' : 'none';
     }
-menuLateral.style.display = (menuLateral.style.display === "none" || menuLateral.style.display === "") ? "flex" : "none";
-    }
 </script>
 
 </html>
