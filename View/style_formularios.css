@@ -15,7 +15,7 @@ CSS padrão
 
 body{
     margin: 0;
-    background-color: #fbfbfb;
+    background-color: #EEEEEE;
 }
 
 .container{
@@ -26,18 +26,6 @@ body{
     overflow: hidden;
 }
 
-/*
-
-CSS para o formulário de abertura de chamado
-
-*/
-
-
-/*
-
-CSS para o formulário de criação de conta
-
-*/
 
 
 /*
@@ -55,7 +43,7 @@ CSS para o formulário de login do servidor
 }
 
 .formulario-login{
-    width: 12vw;
+    width: 18vw;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -63,7 +51,16 @@ CSS para o formulário de login do servidor
     padding: 20px;
 }
 
+.image-form-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.image-form-login img{
+    width: 50%;
+    height: auto;
+}
 .input-usuario, .input-senha{
     display: flex;
     flex-direction: column;
@@ -75,20 +72,30 @@ CSS para o formulário de login do servidor
     border-top: none;
     outline: 0;
     padding: 10px;
+    margin: 20px;
     font-weight: bold;
-    color: #007bff;
+    color: #333;
+}
+
+/* Retira o background do preenchimento automático */
+input:-webkit-autofill{
+    -webkit-text-fill-color: fff !important;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .formulario-login label, .formulario-login a{
     font-weight: bold;
     font-style: italic;
     font-size: 16px;
-    color: #29c068;
+    color: #30dc78;
 }
 
-.check-mostrar-senha{
+.checkbox-mostrar-senha{
     padding: 10px;
+    margin-left: 20px;
     display: flex;
+    color: #007BFF;
 }
 
 .opcoes-adicionais, .btn-entrar{
@@ -101,20 +108,22 @@ CSS para o formulário de login do servidor
     margin: 3px;
 }
 .opcoes-adicionais a{
-    font-size: 13px;
-    color: #007bff;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
     transition: 0.3s;
 }
 .opcoes-adicionais a:hover{
-    color: #30dc78;
+    transform: scale(1.05);
+    color: #007BFF;
     transition: 0.3s;
 }
 
 .btn-entrar button{
     width: 100%;
     border: none;
-    padding: 5px;
-    background-color: #007bff;
+    padding: 8px;
+    background-color: #30dc78;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -126,7 +135,7 @@ CSS para o formulário de login do servidor
 .btn-entrar button:hover{
     transition: 0.3s;
     transform: scale(1.03);
-    background-color: #30dc78;
+    background-color: #007BFF;
 }
 
 
@@ -151,6 +160,162 @@ CSS para o formulário de login do servidor
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+
+/*
+
+CSS para o formulário de criação de conta
+
+*/
+
+.div-formulario-cadastro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-cadastro{
+    width: 20vw;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+}
+.image-form-cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-form-cadastro img{
+    width: 50%;
+    height: auto;
+}
+
+.input-nome-servidor input, 
+.input-sobrenome-servidor input, 
+.input-email-servidor input, 
+.input-cpf-servidor input,  
+.input-senha-servidor input{
+    margin: 10px;
+    padding: 10px; /* Adiciona algum espaçamento interno para melhor legibilidade */
+    border: 1px solid #ccc; /* Adiciona uma borda fina ao redor do seletor */
+    border-radius: 3px; /* Borda arredondada */
+    width: 90%; /* Faz com que o seletor ocupe toda a largura disponível */
+    font-weight: bold;
+}
+
+
+/* Estilo para os seletores */
+.select-secretaria-servidor select,
+.select-setor-servidor select,
+.select-sexo-servidor select {
+    margin: 10px;
+    padding: 10px; /* Adiciona algum espaçamento interno para melhor legibilidade */
+    border: 1px solid #ccc; /* Adiciona uma borda fina ao redor do seletor */
+    border-radius: 5px; /* Borda arredondada */
+    width: 95%; /* Faz com que o seletor ocupe toda a largura disponível */
+    font-weight: bold;
+}
+
+.select-secretaria-servidor option, .select-setor-servidor option, .select-sexo-servidor option {
+    font-weight: bold;
+}
+
+/* Estilo para os itens do seletor (opcional) */
+.select-secretaria-servidor select option,
+.select-setor-servidor select option, 
+.select-sexo-servidor select option,
+.input-nome-servidor input, 
+.input-sobrenome-servidor input, 
+.input-email-servidor input, 
+.input-cpf-servidor input,  
+.input-senha-servidor input {
+    background-color: #fff; /* Cor de fundo para os itens do seletor */
+    color: #333; /* Cor do texto dos itens do seletor */
+}
+
+/* Estilo quando o seletor está focado (opcional) */
+.select-secretaria-servidor select:focus,
+.select-setor-servidor select:focus, 
+.select-sexo-servidor select:focus,
+.input-nome-servidor input:focus, 
+.input-sobrenome-servidor input:focus,
+.input-email-servidor input:focus, 
+.input-cpf-servidor input:focus,  
+.input-senha-servidor input:focus{
+    outline: none; /* Remove a borda ao redor do seletor quando ele está focado */
+    border-color: #30dc78; /* Cor da borda quando o seletor está focado */
+    box-shadow: 0 0 5px #30dc78; /* Adiciona uma sombra ao redor do seletor quando ele está focado */
+}
+
+
+.checkbox-mostrar-senha{
+    padding: 10px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.btn-cadastrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-cadastrar button{
+    width: 90%;
+    border: none;
+    padding: 8px;
+    background-color: #30dc78;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-cadastrar button:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+    background-color: #007BFF;
+}
+
+.fazer-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.3s;
+    color: #333;
+}
+
+.fazer-login a{
+    color: #007BFF;
+}
+
+.fazer-login a:hover{
+    color: #29c068;
+    transition: 0.3s;
+    
+}
+/*
+
+CSS para o formulário de criação de conta
+
+*/
+
+
+
+/*
+
+CSS para o formulário de abertura de chamado
+
+*/
 /*
 
 CSS para o formulário de login do administrador
@@ -207,16 +372,19 @@ CSS dos modais de sucesso, erro e pendencia
 }
 
 /* Modal de pendencia */
-.card-modal-erro{
+.card-modal-pendencia{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    border: 1px solid #DC3030;
+    border: 1px solid #F4DF21;
     border-radius: 13px;
-    background-color: #DC3030;
+    background-color: #F4DF21;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin: 5px;
 }
-
+.card-modal-pendencia span a{
+    color: rgb(0, 8, 255) ;
+}
 /* Imagem do modal */
 .icone-modal img{
     width: 50px;
@@ -240,3 +408,5 @@ RESPONSIVIDADE
 */
 
 /* Menu */
+
+

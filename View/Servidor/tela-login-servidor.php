@@ -12,6 +12,7 @@ session_start();
     <title>Login</title>
     <!-- CSS do formulário -->
     <link rel="stylesheet" href="/Helpdesk/View/style_formularios.css">
+
 </head>
 
 <body>
@@ -20,26 +21,33 @@ session_start();
         <!-- div do formulario -->
         <div class="div-formulario-login" id="div-formulario-login">
 
+
+
             <!-- FORMULÁRIO DE LOGIN DO USUÁRIO -->
-            <form action="/Helpdesk/Controller/Database/login-servidor.php" class="formulario-login" method="POST   " onsubmit="carregar()">
+            <form action="/Helpdesk/Controller/Database/login-servidor.php" class="formulario-login" method="POST" onsubmit="carregar()">
+
+                <!-- Imagem cabeçalho formulário de login -->
+                <div class="image-form-login">
+                    <img src="/Helpdesk/Image/logo-prefeitura.png" alt="Ícone sistema">
+                </div>
 
                 <!--Campo de texto para o CPF -->
                 <div class="input-usuario">
-                    <label for="user">CPF</label>
-                    <input type="text" id="cpf" name="cpf-login"  placeholder="000.000.000-00" oninput="formatarCPF(this)" maxlength="14" required>
+
+                    <input type="text" id="cpf" name="cpf-login" placeholder="CPF" oninput="maskCPF(this)" maxlength="14" required>
                 </div>
 
                 <!-- Campo de texto para a senha -->
                 <div class="input-senha">
 
-                    <label for="password">Senha</label>
-                    <input type="password" id="senha-login" name="senha-login" autocomplete="off" placeholder="*********" maxlength="15" required>
+
+                    <input type="password" id="senha-login" name="senha-login" autocomplete="off" placeholder="Senha" maxlength="15" required>
 
                 </div>
 
-                
+
                 <!-- Mostrar a senha -->
-                <div class="check-mostrar-senha">
+                <div class="checkbox-mostrar-senha">
                     <input type="checkbox" id="show-password" onclick="showPassword()">
                     <label for="mostrarSenha">Mostrar Senha</label>
                 </div>
@@ -51,7 +59,7 @@ session_start();
                     </div>
 
                     <div class="criar-conta">
-                        <a href="page-cadastroUsuario.php">Criar conta!</a>
+                        <a href="/Helpdesk/View/Servidor/Formularios/form-cadastro-servidor.php">Criar conta!</a>
                     </div>
                 </div>
 
@@ -68,10 +76,10 @@ session_start();
 
         </div>
 
-        <!-- Modal de erro no login-->
+        <!-- Modal de erros -->
         <div class="div-modal-alerta" id="modal">
             <?php
-            // caso aconteça erro no login, vai aparecer o modal de erro
+            // caso aconteça erro no login, exibe o modal de erro
             if (isset($_SESSION["erro"])) {
 
             ?>
@@ -81,7 +89,7 @@ session_start();
                         <img src="/Helpdesk/Image/icon-erro.png" alt="Ícone chamado aberto">
                     </div>
                     <div class="mensagem-modal">
-                        <span>ERRO AO EFETUAR O LOGIN!</span>
+                        <span>Usuário ou senha inválidos!</span>
                     </div>
                 </div>
             <?php
@@ -89,6 +97,24 @@ session_start();
 
             // limpa a SESSION
             unset($_SESSION["erro"]);
+
+
+
+            // caso o usuário tente acessar alguma página sem realizar login, exibe o modal de pendencia
+            if (isset($_SESSION["acessoNegado"])) {
+            ?>
+                <div class="card-modal-pendencia">
+                    <div class="icone-modal">
+                        <img src="/Helpdesk/Image/icon-pendencia.png" alt="Ícone chamado aberto">
+                    </div>
+                    <div class="mensagem-modal">
+                        <span>Para utilizar o sistema, faça login primeiro !</span>
+                    </div>
+                </div>
+            <?php
+            }
+
+            unset($_SESSION["acessoNegado"]);
             ?>
         </div>
 
@@ -124,7 +150,7 @@ session_start();
     }
 
     // função para usar a mascara do CPF 000.000.000-00
-    function formatarCPF(valor) {
+    function maskCPF(valor) {
 
         var formatacao = valor.value;
 
@@ -143,10 +169,12 @@ session_start();
     setTimeout(() => {
         var modalErro = document.getElementById('modal');
 
-        if(modalErro){
+        if (modalErro) {
             modalErro.style.display = 'none';
         }
     }, 5000);
+    
+
 </script>
 
 </html>

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cpf = $conn->real_escape_string($_POST["cpf-login"]);
     $password = base64_encode($_POST["senha-login"]);
 
-    $sql = "SELECT * FROM Servidor WHERE Cpf = '$cpf' AND Senha = '$password' and StatusConta = 'Ativa'";
+    $sql = "SELECT * FROM Servidor WHERE Cpf = '$cpf' AND Senha = '$password'";
     $resultado = $conn->query($sql);
 
     if ($resultado->num_rows > 0) {
