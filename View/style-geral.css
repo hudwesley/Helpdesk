@@ -26,7 +26,7 @@ body{
     background-repeat: no-repeat;
     background-size: 200px 200px;
     background-position: center;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 
@@ -372,6 +372,301 @@ CSS homepage - Servidor e Administrador
     font-weight: 900;
     line-height: normal;
 }
+
+
+/* CSS dos chamados abertos */
+.div-tela-chamados{
+    width: 90vw;
+    height: 80vh;
+    margin-left: 6vw;
+}
+
+.meus-chamados {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Adicione margem direita a cada card-chamado. */
+.chamado {
+    width: 280px;
+    height: 150px;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    border: 3px solid #fff;
+}
+
+
+.chamado:hover {
+    transform: scale(1.03); /* Efeito de escala no hover. */
+    border: 3px solid #007BFF;
+    transition: transform 0.2s;
+}
+
+.status-aguardando, .status-em-analise, .status-concluido, .status-recusado, .status-retirada{
+    border-radius: 3px;
+    margin: 3px;
+    width: fit-content;
+    height: 20PX;
+    padding: 8px;
+    font-size: 17PXpx;
+    font-weight: 800;
+}
+
+.status-recusado{
+    background-color: #FF401E;
+}
+
+.status-aguardando{
+    background-color: #EE53D8;
+}
+
+.status-em-analise{
+    background-color: #E3FF00;
+}
+
+.status-retirada{
+    background-color: #4BFFD8;
+}
+
+.status-concluido{
+    background-color: #3FC38A;
+}
+
+.aguardando {
+    background-color: #d388af;
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+}
+
+.concluido {
+    background-color: #249469;
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+}
+
+.em-analise {
+    background-color: #FFE500;
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+}
+
+.recusado  {
+    background-color: #FF4B4B;
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+}
+.retirada{
+    background-color: #4bffd8;
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+}
+
+.legenda {
+    margin: 10px; /* Espaço entre a tabela e a legenda, ajuste conforme necessário */
+    font-weight: bold;
+}
+
+.imagem-chamado{
+    display: flex;
+    align-items: center;
+}
+.imagem-chamado img{
+    width: 80px;
+    height: auto;
+}
+
+.tipos-status{
+    display: flex;
+    flex-direction: row;
+    margin: 3px;
+    padding: 5px;
+}
+
+.data-chamado{
+    color: #000000; /* Cor do texto branca para fundo escuro. */
+    font-size: 16px; 
+    font-weight: 800;
+    padding: 5px; 
+    margin: 5px 0 15px 0;
+}
+
+.opcoes-chamado{
+    display: flex;
+}
+
+
+.opcao-editar a {
+    background-color: #007BFF;
+    border-radius: 7px;
+    color: #fff;
+    padding: 10px 13px;
+    margin: 5px;
+}
+
+.opcao-excluir a{
+    background-color: #ff0019;
+    border-radius: 7px;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 5px;
+}
+.opcao-concluir{
+    background-color: #3FC38A;
+    border-radius: 7px;
+    color: #fff;
+    padding: 10px 13px;
+    margin: 5px;
+}
+.opcao-editar a:hover {
+    background-color: #0b54a2; /* Cor do ícone no hover. */
+}
+
+.opcao-excluir a:hover{
+    background-color: #9a0917;
+}
+.opcao-concluir a:hover{
+    background-color: #198e5b;
+}
+
+
+/* Abrir chamado */
+.abrir-chamado{
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.abrir-chamado span{
+    margin: 5px;
+}
+
+.btn-enviar button{
+    width: auto;
+    border: none;
+    padding: 8px;
+    background-color: #30dc78;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-enviar button:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+}
+
+/* Modal de abertura do chamado */
+.div-formulario-chamado, .passos-problema{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.categoria-chamado{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.categoria-chamado img{
+    width: 70px;
+    height: auto;
+    padding: 5px;
+}
+.input-local-chamado input,
+.input-responsavel-chamado input, 
+.input-senha-chamado input, 
+.input-num-patrimonio-chamado input, 
+.input-descricao-problema textarea{
+    margin: 10px;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    font-weight: bold;
+    border-radius: 3px; 
+    width: 90%; 
+    text-decoration: none;
+}
+.input-local-chamado input:focus, 
+.input-responsavel-chamado input:focus, 
+.input-senha-chamado input:focus, 
+.input-num-patrimonio-chamado input:focus, 
+.input-descricao-problema textarea:focus, 
+.select-setor-chamado select:focus{
+    outline: none;
+    border-color: #30dc78; 
+    box-shadow: 0 0 5px #30dc78;
+}
+.select-setor-chamado select{
+    margin: 10px;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    font-weight: bold;
+    width: 95%; 
+    font-weight: bold;
+}
+
+.span-itens{
+    padding: 5px;
+    margin-left: 5px;
+}
+.itens-chamado {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 15px 0 15px 0;
+}
+
+.btn-fechar img{
+    width: 20px;
+    height: auto;
+}
+
+.btn-fechar button{
+    background: transparent;
+    padding: 4px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-fechar button:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+/* CSS status de cada chamdo */
 
 /*
 
