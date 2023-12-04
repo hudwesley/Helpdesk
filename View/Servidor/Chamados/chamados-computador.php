@@ -28,6 +28,7 @@ $idServidor = $_SESSION['idServidor'];
         header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");
     } else {
     ?>
+        <!-- Div da página inteira -->
         <div class="container" id="container">
 
             <!-- Menu lateral -->
@@ -163,12 +164,12 @@ $idServidor = $_SESSION['idServidor'];
                 <div class="abrir-chamado">
                     <span>Caso esteja com problemas no seu equipamento </span>
                     <div class="btn-enviar">
-                        <button onclick="abrirPassosResolucao()"> Clique aqui</button>
+                        <button onclick="abrirPassosResolucao()" id="abrirModal"> Clique aqui</button>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+
         <!-- Passo a passo para a resolução do problema -->
         <div class="passos-problema" id="passos-problema" style="display: none;">
             <!-- Fechar o modal -->
@@ -198,6 +199,8 @@ $idServidor = $_SESSION['idServidor'];
             <span>Caso problema não tenha sido resolvido: <a href="#" onclick="abrirModalChamado()">Abra um chamado!</a></span>
 
         </div>
+
+        <!-- div do formulário de abertura de chamado -->
         <div class="div-formulario-chamado" id="modalFormulario" style="display: none;">
 
             <!-- Fechar o modal -->
@@ -223,11 +226,16 @@ $idServidor = $_SESSION['idServidor'];
                 <!-- Setor do usuário -->
                 <div class="select-setor-chamado">
                     <select name="setor-chamado" id="setor-chamado">
-                        <option value="0" selected disabled>Selecione o setor</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4 </option>
+                        <option value="#" selected disabled>Selecione o setor</option>
+                        <?php
+                        $sql = "SELECT idSetor, Nome FROM setor ORDER BY nome ASC";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . $row["idSetor"] . '">' . $row["Nome"] . '</option>';
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
                 <!-- Responsável pelo chamado -->
@@ -315,23 +323,24 @@ $idServidor = $_SESSION['idServidor'];
                         </div>
                     </a>
                 </div>
+            </div>
+        </div>
 
-            </div>
-            <div class="botao-suporte">
-                <button onclick="abrirSuporte()">
-                    <div class="icone-button">
-                        <img src="/Helpdesk/Image/icone-suporteM.png" alt="Ícone suporte">
-                    </div>
-                </button>
-            </div>
-    <?php
+        <!-- Botão para abrir o campo de suporte -->
+        <div class="botao-suporte">
+            <button onclick="abrirSuporte()">
+                <div class="icone-button">
+                    <img src="/Helpdesk/Image/icone-suporteM.png" alt="Ícone suporte">
+                </div>
+            </button>
+        </div>
+<?php
                     }
                 }
 
-    ?>
+?>
 </body>
 <script>
-    
     const container = document.getElementById('container'); // container da tela inteira
     const passos_problema = document.getElementById('passos-problema'); // passo a passo 
     const modalFormulario = document.getElementById('modalFormulario'); // formulário de cadastro
@@ -349,9 +358,11 @@ $idServidor = $_SESSION['idServidor'];
 
     // abre o passos para solucionar o problema
     function abrirPassosResolucao() {
+
         if (passos_problema.style.display == 'none') {
             passos_problema.style.display = 'flex'
             container.style.display = 'none';
+
         } else {
             passos_problema.style.display = 'none'
             container.style.display = 'block';
@@ -367,7 +378,6 @@ $idServidor = $_SESSION['idServidor'];
             modalFormulario.style.display = 'none'
         }
     }
-
 </script>
 
 </html>

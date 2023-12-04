@@ -196,7 +196,6 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
         </div>
 
         <!-- Icone para abrir campo de ajuda  -->
-
         <div class="div-suporte" id="div-suporte" style="display: none;">
             <div class="div-opcoes-suporte">
                 <div class="mensagem-opcao">

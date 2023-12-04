@@ -439,7 +439,7 @@ CSS homepage - Servidor e Administrador
 }
 
 .aguardando {
-    background-color: #d388af;
+    background-color: #EE53D8;
     margin: 3px;
     width: 10px;
     height: 10px;
@@ -594,6 +594,10 @@ CSS homepage - Servidor e Administrador
     font-weight: bold;
 }
 
+.passos-problema a{
+    color: #EE53D8;
+}
+
 .categoria-chamado{
     display: flex;
     align-items: center;
@@ -609,7 +613,8 @@ CSS homepage - Servidor e Administrador
 .input-responsavel-chamado input, 
 .input-senha-chamado input, 
 .input-num-patrimonio-chamado input, 
-.input-descricao-problema textarea{
+.input-descricao-problema textarea,
+.select-setor-chamado option{
     margin: 10px;
     padding: 10px; 
     border: 1px solid #ccc;
