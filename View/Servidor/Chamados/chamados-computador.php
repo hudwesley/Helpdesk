@@ -361,11 +361,9 @@ $idServidor = $_SESSION['idServidor'];
 
         if (passos_problema.style.display == 'none') {
             passos_problema.style.display = 'flex'
-            container.style.display = 'none';
 
         } else {
             passos_problema.style.display = 'none'
-            container.style.display = 'block';
         }
 
     }
@@ -374,8 +372,10 @@ $idServidor = $_SESSION['idServidor'];
     function abrirModalChamado() {
         if (modalFormulario.style.display == 'none') {
             modalFormulario.style.display = 'block'
+            container.style.display = 'none';
         } else {
             modalFormulario.style.display = 'none'
+            container.style.display = 'block';
         }
     }
 </script>

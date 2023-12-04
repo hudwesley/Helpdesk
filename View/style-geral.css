@@ -572,6 +572,7 @@ CSS homepage - Servidor e Administrador
 }
 
 .btn-enviar button:hover{
+    background-color: #249469;
     transition: 0.3s;
     transform: scale(1.03);
 }
