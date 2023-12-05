@@ -24,7 +24,7 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
 <body>
     <?php if (!verificaSessaoServidor($sessaoServidor)) {
         $_SESSION["acessoNegado"] = true;
-        header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");    
+        header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");
     } else {
 
     ?>
@@ -134,7 +134,7 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
                     </a>
 
                     <!-- Cartão chamado internet e redes -->
-                    <a class="cartao-chamado" href="">
+                    <a class="cartao-chamado" href="/Helpdesk/View/Servidor/Chamados/chamados-internet.php">
                         <div class="icone-chamado">
                             <img src="/Helpdesk/Image/icone-internet.png" alt="Ícone internet">
                         </div>
@@ -247,15 +247,44 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
         container.style.opacity = isHidden ? '0.2' : '1';
     }
 
-    // Função para alternar a exibição do balão de suporte
+    function fadeIn(element) {
+        element.style.display = 'flex';
+        element.style.opacity = 0;
+
+        let opacity = 0;
+        const fadeInInterval = setInterval(function() {
+            if (opacity < 1) {
+                opacity += 0.1;
+                element.style.opacity = opacity;
+            } else {
+                clearInterval(fadeInInterval);
+            }
+        }, 50);
+    }
+
+    // Função para aplicar fade out
+    function fadeOut(element) {
+        let opacity = 1;
+        const fadeOutInterval = setInterval(function() {
+            if (opacity > 0) {
+                opacity -= 0.1;
+                element.style.opacity = opacity;
+            } else {
+                element.style.display = 'none';
+                clearInterval(fadeOutInterval);
+            }
+        }, 50);
+    }
+
+    // Modifique as funções existentes para chamar fadeIn e fadeOut
     function abrirSuporte() {
-        // seleleciona a div que contém os elementos de suporte
         const divSuporte = document.getElementById('div-suporte');
 
-        // Verifica se a div está oculta 
-        const isHidden = divSuporte.style.display === 'none';
-
-        divSuporte.style.display = isHidden ? 'block' : 'none';
+        if (divSuporte.style.display == 'none') {
+            fadeIn(divSuporte);
+        } else {
+            fadeOut(divSuporte);
+        }
     }
 </script>
 

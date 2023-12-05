@@ -22,7 +22,7 @@ $idServidor = $_SESSION['idServidor'];
 
 </head>
 
-<body>
+<body id="body">
     <?php if (!verificaSessaoServidor($sessaoServidor)) {
         $_SESSION["acessoNegado"] = true;
         header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");
@@ -51,7 +51,7 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
             </div>
             <!-- Tela dos chamados -->
-            <div class="div-tela-chamados">
+            <div class="div-tela-chamados" id="div-tela-chamados">
                 <div class="legenda">
                     <div class="imagem-chamado">
                         <img src="/Helpdesk/Image/icone-computador.png" alt="">
@@ -219,12 +219,12 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
 
                 <!-- Local do chamado -->
-                <div class="input-local-chamado">
+                <div class="input-group-chamado">
                     <input type="text" name="local-chamado" placeholder="Local">
                 </div>
 
                 <!-- Setor do usuário -->
-                <div class="select-setor-chamado">
+                <div class="select-group-chamado">
                     <select name="setor-chamado" id="setor-chamado">
                         <option value="#" selected disabled>Selecione o setor</option>
                         <?php
@@ -239,20 +239,20 @@ $idServidor = $_SESSION['idServidor'];
                     </select>
                 </div>
                 <!-- Responsável pelo chamado -->
-                <div class="input-responsavel-chamado">
+                <div class="input-group-chamado">
                     <input type="text" name="responsavel-chamado" placeholder="Responsável pelo chamado">
                 </div>
 
                 <!-- Senha do equipamento -->
-                <div class="input-senha-chamado">
+                <div class="input-group-chamado">
                     <input type="text" name="senha-chamado" placeholder="Senha do equipamento">
                 </div>
                 <!-- Nº do patrimônio -->
-                <div class="input-num-patrimonio-chamado">
+                <div class="input-group-chamado">
                     <input type="text" class="num-patrimonio-chamado" placeholder="Nº do chamado">
                 </div>
                 <!-- Descrição do problema -->
-                <div class="input-descricao-problema">
+                <div class="input-group-chamado">
                     <textarea name="descricao-problema" cols="60" rows="10" placeholder="Descrição do problema"></textarea>
                 </div>
                 <!-- Checkbox para itens que vão acompanhar o equipamento -->
@@ -341,41 +341,66 @@ $idServidor = $_SESSION['idServidor'];
 ?>
 </body>
 <script>
-    const container = document.getElementById('container'); // container da tela inteira
-    const passos_problema = document.getElementById('passos-problema'); // passo a passo 
-    const modalFormulario = document.getElementById('modalFormulario'); // formulário de cadastro
+    // Função para aplicar fade in
+    function fadeIn(element) {
+        element.style.display = 'flex';
+        element.style.opacity = 0;
 
-    // abrir o campo de suporte ao usuário
+        let opacity = 0;
+        const fadeInInterval = setInterval(function() {
+            if (opacity < 1) {
+                opacity += 0.1;
+                element.style.opacity = opacity;
+            } else {
+                clearInterval(fadeInInterval);
+            }
+        }, 50);
+    }
+
+    // Função para aplicar fade out
+    function fadeOut(element) {
+        let opacity = 1;
+        const fadeOutInterval = setInterval(function() {
+            if (opacity > 0) {
+                opacity -= 0.1;
+                element.style.opacity = opacity;
+            } else {
+                element.style.display = 'none';
+                clearInterval(fadeOutInterval);
+            }
+        }, 50);
+    }
+
+    // Modifique as funções existentes para chamar fadeIn e fadeOut
     function abrirSuporte() {
-        // seleleciona a div que contém os elementos de suporte
         const divSuporte = document.getElementById('div-suporte');
-
-        // Verifica se a div está oculta 
         const isHidden = divSuporte.style.display === 'none';
 
-        divSuporte.style.display = isHidden ? 'block' : 'none';
+        if (isHidden) {
+            fadeIn(divSuporte);
+        } else {
+            fadeOut(divSuporte);
+        }
     }
 
-    // abre o passos para solucionar o problema
     function abrirPassosResolucao() {
+        const passos_problema = document.getElementById('passos-problema');
 
         if (passos_problema.style.display == 'none') {
-            passos_problema.style.display = 'flex'
-
+            fadeIn(passos_problema);
         } else {
-            passos_problema.style.display = 'none'
+            fadeOut(passos_problema);
         }
-
     }
 
-    // abre o formulário para abrir chamado
     function abrirModalChamado() {
-        if (modalFormulario.style.display == 'none') {
-            modalFormulario.style.display = 'block'
-            container.style.display = 'none';
+        const modalFormulario = document.getElementById('modalFormulario');
+        const container = document.getElementById('container');
+
+        if (modalFormulario.style.display === 'none' || modalFormulario.style.display === '') {
+            fadeIn(modalFormulario);
         } else {
-            modalFormulario.style.display = 'none'
-            container.style.display = 'block';
+            fadeOut(modalFormulario);
         }
     }
 </script>
