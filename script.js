@@ -31,25 +31,23 @@ function fadeOut(element) {
 
 // Função para alternar a exibição da descrição de chamados
 function descricaoChamados() {
-    // Seleciona a div de descrição de chamados e o container
     const divDescricaoChamados = document.getElementById('div-descricao-chamados');
     const container = document.getElementById('container');
-
-    // Verifica se a div de descrição de chamados está oculta
     const isHidden = divDescricaoChamados.style.display === 'none';
 
-    // Altera a exibição da div de descrição de chamados e a opacidade do container
-    divDescricaoChamados.style.display = isHidden ? 'flex' : 'none';
-    container.style.opacity = isHidden ? '0.2' : '1';
+    if (isHidden) {
+        fadeIn(divDescricaoChamados);
+    } else {
+        fadeOut(divDescricaoChamados);
+    }
 }
-
-
 
 // Modifique as funções existentes para chamar fadeIn e fadeOut
 function abrirSuporte() {
     const divSuporte = document.getElementById('div-suporte');
+    const isHidden = divSuporte.style.display === 'none';
 
-    if (divSuporte.style.display == 'none') {
+    if (isHidden) {
         fadeIn(divSuporte);
     } else {
         fadeOut(divSuporte);
@@ -58,12 +56,13 @@ function abrirSuporte() {
 
 // Abrir passo a passo para resolução do chamado
 function abrirPassosResolucao() {
-    const passos_problema = document.getElementById('passos-problema');
+    const passosProblema = document.getElementById('passos-problema');
+    const isHidden = passosProblema.style.display === 'none';
 
-    if (passos_problema.style.display == 'none') {
-        fadeIn(passos_problema);
+    if (isHidden) {
+        fadeIn(passosProblema);
     } else {
-        fadeOut(passos_problema);
+        fadeOut(passosProblema);
     }
 }
 
@@ -71,8 +70,9 @@ function abrirPassosResolucao() {
 function abrirModalChamado() {
     const modalFormulario = document.getElementById('modalFormulario');
     const container = document.getElementById('container');
+    const isHidden = modalFormulario.style.display === 'none' || modalFormulario.style.display === '';
 
-    if (modalFormulario.style.display === 'none' || modalFormulario.style.display === '') {
+    if (isHidden) {
         fadeIn(modalFormulario);
     } else {
         fadeOut(modalFormulario);
