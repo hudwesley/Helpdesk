@@ -610,12 +610,9 @@ CSS homepage - Servidor e Administrador
     height: auto;
     padding: 5px;
 }
-.input-local-chamado input,
-.input-responsavel-chamado input, 
-.input-senha-chamado input, 
-.input-num-patrimonio-chamado input, 
-.input-descricao-problema textarea,
-.select-setor-chamado option{
+.input-group-chamado input,
+.input-group-chamado textarea,
+.select-group-chamado option{
     margin: 10px;
     padding: 10px; 
     border: 1px solid #ccc;
@@ -624,17 +621,14 @@ CSS homepage - Servidor e Administrador
     width: 90%; 
     text-decoration: none;
 }
-.input-local-chamado input:focus, 
-.input-responsavel-chamado input:focus, 
-.input-senha-chamado input:focus, 
-.input-num-patrimonio-chamado input:focus, 
-.input-descricao-problema textarea:focus, 
-.select-setor-chamado select:focus{
+.input-group-chamado input:focus,
+.input-group-chamado textarea:focus, 
+.select-group-chamado select:focus{
     outline: none;
     border-color: #30dc78; 
     box-shadow: 0 0 5px #30dc78;
 }
-.select-setor-chamado select{
+.select-group-chamado select{
     margin: 10px;
     padding: 10px; 
     border: 1px solid #ccc;

@@ -19,10 +19,11 @@ $idServidor = $_SESSION['idServidor'];
     <!-- ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/Helpdesk/script.js"></script>
 
 </head>
 
-<body>
+<body id="body">
     <?php if (!verificaSessaoServidor($sessaoServidor)) {
         $_SESSION["acessoNegado"] = true;
         header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");
@@ -51,7 +52,7 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
             </div>
             <!-- Tela dos chamados -->
-            <div class="div-tela-chamados">
+            <div class="div-tela-chamados" id="div-tela-chamados">
                 <div class="legenda">
                     <div class="imagem-chamado">
                         <img src="/Helpdesk/Image/icone-computador.png" alt="">
@@ -219,12 +220,12 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
 
                 <!-- Local do chamado -->
-                <div class="input-local-chamado">
+                <div class="input-group-chamado">
                     <input type="text" name="local-chamado" placeholder="Local">
                 </div>
 
                 <!-- Setor do usuário -->
-                <div class="select-setor-chamado">
+                <div class="select-group-chamado">
                     <select name="setor-chamado" id="setor-chamado">
                         <option value="#" selected disabled>Selecione o setor</option>
                         <?php
@@ -239,20 +240,20 @@ $idServidor = $_SESSION['idServidor'];
                     </select>
                 </div>
                 <!-- Responsável pelo chamado -->
-                <div class="input-responsavel-chamado">
+                <div class="input-group-chamado">
                     <input type="text" name="responsavel-chamado" placeholder="Responsável pelo chamado">
                 </div>
 
                 <!-- Senha do equipamento -->
-                <div class="input-senha-chamado">
+                <div class="input-group-chamado">
                     <input type="text" name="senha-chamado" placeholder="Senha do equipamento">
                 </div>
                 <!-- Nº do patrimônio -->
-                <div class="input-num-patrimonio-chamado">
+                <div class="input-group-chamado">
                     <input type="text" class="num-patrimonio-chamado" placeholder="Nº do chamado">
                 </div>
                 <!-- Descrição do problema -->
-                <div class="input-descricao-problema">
+                <div class="input-group-chamado">
                     <textarea name="descricao-problema" cols="60" rows="10" placeholder="Descrição do problema"></textarea>
                 </div>
                 <!-- Checkbox para itens que vão acompanhar o equipamento -->
@@ -340,44 +341,6 @@ $idServidor = $_SESSION['idServidor'];
 
 ?>
 </body>
-<script>
-    const container = document.getElementById('container'); // container da tela inteira
-    const passos_problema = document.getElementById('passos-problema'); // passo a passo 
-    const modalFormulario = document.getElementById('modalFormulario'); // formulário de cadastro
 
-    // abrir o campo de suporte ao usuário
-    function abrirSuporte() {
-        // seleleciona a div que contém os elementos de suporte
-        const divSuporte = document.getElementById('div-suporte');
-
-        // Verifica se a div está oculta 
-        const isHidden = divSuporte.style.display === 'none';
-
-        divSuporte.style.display = isHidden ? 'block' : 'none';
-    }
-
-    // abre o passos para solucionar o problema
-    function abrirPassosResolucao() {
-
-        if (passos_problema.style.display == 'none') {
-            passos_problema.style.display = 'flex'
-
-        } else {
-            passos_problema.style.display = 'none'
-        }
-
-    }
-
-    // abre o formulário para abrir chamado
-    function abrirModalChamado() {
-        if (modalFormulario.style.display == 'none') {
-            modalFormulario.style.display = 'block'
-            container.style.display = 'none';
-        } else {
-            modalFormulario.style.display = 'none'
-            container.style.display = 'block';
-        }
-    }
-</script>
 
 </html>

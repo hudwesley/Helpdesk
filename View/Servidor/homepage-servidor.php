@@ -18,13 +18,14 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
     <link rel="stylesheet" href="/Helpdesk/View/style-geral.css">
     <!-- ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/Helpdesk/script.js"></script>
 
 </head>
 
 <body>
     <?php if (!verificaSessaoServidor($sessaoServidor)) {
         $_SESSION["acessoNegado"] = true;
-        header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");    
+        header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");
     } else {
 
     ?>
@@ -134,7 +135,7 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
                     </a>
 
                     <!-- Cartão chamado internet e redes -->
-                    <a class="cartao-chamado" href="">
+                    <a class="cartao-chamado" href="/Helpdesk/View/Servidor/Chamados/chamados-internet.php">
                         <div class="icone-chamado">
                             <img src="/Helpdesk/Image/icone-internet.png" alt="Ícone internet">
                         </div>
@@ -232,31 +233,5 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
         </div>
     <?php } ?>
 </body>
-<script>
-    // Função para alternar a exibição da descrição de chamados
-    function descricaoChamados() {
-        // Seleciona a div de descrição de chamados e o container
-        const divDescricaoChamados = document.getElementById('div-descricao-chamados');
-        const container = document.getElementById('container');
-
-        // Verifica se a div de descrição de chamados está oculta
-        const isHidden = divDescricaoChamados.style.display === 'none';
-
-        // Altera a exibição da div de descrição de chamados e a opacidade do container
-        divDescricaoChamados.style.display = isHidden ? 'flex' : 'none';
-        container.style.opacity = isHidden ? '0.2' : '1';
-    }
-
-    // Função para alternar a exibição do balão de suporte
-    function abrirSuporte() {
-        // seleleciona a div que contém os elementos de suporte
-        const divSuporte = document.getElementById('div-suporte');
-
-        // Verifica se a div está oculta 
-        const isHidden = divSuporte.style.display === 'none';
-
-        divSuporte.style.display = isHidden ? 'block' : 'none';
-    }
-</script>
 
 </html>
