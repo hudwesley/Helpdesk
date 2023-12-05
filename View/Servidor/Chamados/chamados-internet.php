@@ -18,6 +18,7 @@ $idServidor = $_SESSION['idServidor'];
     <!-- ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/Helpdesk/script.js"></script>
 </head>
 
 <body>
@@ -286,68 +287,4 @@ $idServidor = $_SESSION['idServidor'];
     }
         ?>
 </body>
-<script>
-    // Função para aplicar fade in
-    function fadeIn(element) {
-        element.style.display = 'flex';
-        element.style.opacity = 0;
-
-        let opacity = 0;
-        const fadeInInterval = setInterval(function() {
-            if (opacity < 1) {
-                opacity += 0.1;
-                element.style.opacity = opacity;
-            } else {
-                clearInterval(fadeInInterval);
-            }
-        }, 50);
-    }
-
-    // Função para aplicar fade out
-    function fadeOut(element) {
-        let opacity = 1;
-        const fadeOutInterval = setInterval(function() {
-            if (opacity > 0) {
-                opacity -= 0.1;
-                element.style.opacity = opacity;
-            } else {
-                element.style.display = 'none';
-                clearInterval(fadeOutInterval);
-            }
-        }, 50);
-    }
-
-    // Modifique as funções existentes para chamar fadeIn e fadeOut
-    function abrirSuporte() {
-        const divSuporte = document.getElementById('div-suporte');
-        
-        if (divSuporte.style.display == 'none') {
-            fadeIn(divSuporte);
-        } else {
-            fadeOut(divSuporte);
-        }
-    }
-
-    function abrirPassosResolucao() {
-        const passos_problema = document.getElementById('passos-problema');
-
-        if (passos_problema.style.display == 'none') {
-            fadeIn(passos_problema);
-        } else {
-            fadeOut(passos_problema);
-        }
-    }
-
-    function abrirModalChamado() {
-        const modalFormulario = document.getElementById('modalFormulario');
-        const container = document.getElementById('container');
-
-        if (modalFormulario.style.display === 'none' || modalFormulario.style.display === '') {
-            fadeIn(modalFormulario);
-        } else {
-            fadeOut(modalFormulario);
-        }
-    }
-</script>
-
 </html>

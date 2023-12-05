@@ -18,6 +18,7 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
     <link rel="stylesheet" href="/Helpdesk/View/style-geral.css">
     <!-- ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/Helpdesk/script.js"></script>
 
 </head>
 
@@ -232,60 +233,5 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
         </div>
     <?php } ?>
 </body>
-<script>
-    // Função para alternar a exibição da descrição de chamados
-    function descricaoChamados() {
-        // Seleciona a div de descrição de chamados e o container
-        const divDescricaoChamados = document.getElementById('div-descricao-chamados');
-        const container = document.getElementById('container');
-
-        // Verifica se a div de descrição de chamados está oculta
-        const isHidden = divDescricaoChamados.style.display === 'none';
-
-        // Altera a exibição da div de descrição de chamados e a opacidade do container
-        divDescricaoChamados.style.display = isHidden ? 'flex' : 'none';
-        container.style.opacity = isHidden ? '0.2' : '1';
-    }
-
-    function fadeIn(element) {
-        element.style.display = 'flex';
-        element.style.opacity = 0;
-
-        let opacity = 0;
-        const fadeInInterval = setInterval(function() {
-            if (opacity < 1) {
-                opacity += 0.1;
-                element.style.opacity = opacity;
-            } else {
-                clearInterval(fadeInInterval);
-            }
-        }, 50);
-    }
-
-    // Função para aplicar fade out
-    function fadeOut(element) {
-        let opacity = 1;
-        const fadeOutInterval = setInterval(function() {
-            if (opacity > 0) {
-                opacity -= 0.1;
-                element.style.opacity = opacity;
-            } else {
-                element.style.display = 'none';
-                clearInterval(fadeOutInterval);
-            }
-        }, 50);
-    }
-
-    // Modifique as funções existentes para chamar fadeIn e fadeOut
-    function abrirSuporte() {
-        const divSuporte = document.getElementById('div-suporte');
-
-        if (divSuporte.style.display == 'none') {
-            fadeIn(divSuporte);
-        } else {
-            fadeOut(divSuporte);
-        }
-    }
-</script>
 
 </html>
