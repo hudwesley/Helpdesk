@@ -186,17 +186,19 @@ $idServidor = $_SESSION['idServidor'];
                 <span>Computador e Notebook</span>
 
             </div>
-            <h2>Siga os passos abaixo:</h2>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
-            <span>PASSO</span>
+            <h2>Realize os testes abaixo:</h2>
+            <h3>Teste 1:</h3>
+            <ul>
+                <li>Retire o equipamento de internet da tomada, aguarde 1 minuto e ligue novamente. Após 3 minutos o equipamento se estabilizará e voltará a conexão.</li>
+            </ul>
+            <h3>Teste 2:</h3>
+            <ul>
+                <li>Reinicie o computador e verifique se a conexão normalizou.</li>
+            </ul>
+            <h3>Teste 3:</h3>
+            <ul>
+                <li>Em caso de conexão via cabo de rede, verificar se o cabo está devidamente conectado no computador.</li>
+            </ul>
             <span>Caso problema não tenha sido resolvido: <a href="#" onclick="abrirModalChamado()">Abra um chamado!</a></span>
 
         </div>

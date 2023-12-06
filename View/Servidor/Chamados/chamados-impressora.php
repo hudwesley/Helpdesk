@@ -18,7 +18,6 @@ $idServidor = $_SESSION['idServidor'];
     <!-- ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- funções -->
     <script src="/Helpdesk/script.js"></script>
 </head>
 
@@ -28,9 +27,7 @@ $idServidor = $_SESSION['idServidor'];
         $_SESSION["acessoNegado"] = true;
         header("location: /Helpdesk/View/Servidor/tela-login-servidor.php");
     } else {
-
     ?>
-    
         <div class="container" id="container">
             <div class="menu-lateral" id="menu-lateral">
                 <div class="logo-sistema">
@@ -53,8 +50,8 @@ $idServidor = $_SESSION['idServidor'];
             <div class="div-tela-chamados">
                 <div class="legenda">
                     <div class="imagem-chamado">
-                        <img src="/Helpdesk/Image/icone-internet.png" alt="Ícone internet">
-                        <h2>Chamados - Internet</h2>
+                        <img src="/Helpdesk/Image/icone-impressora.png" alt="Ícone internet">
+                        <h2>Chamados - Impressora</h2>
                     </div>
                     <div class="tipos-status">
                         <span class="recusado"></span>
@@ -69,7 +66,7 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
                 <div class="meus-chamados">
                     <?php
-                    $sql = "SELECT * FROM Internet WHERE Servidor_idServidor = $idServidor ORDER BY CASE status
+                    $sql = "SELECT * FROM Impressora WHERE Servidor_idServidor = $idServidor ORDER BY CASE status
                         WHEN 'Aguardando retirada' THEN 1
                         WHEN 'Em análise' THEN 2
                         WHEN 'Aguardando análise' THEN 3
@@ -118,20 +115,20 @@ $idServidor = $_SESSION['idServidor'];
                                     if ($date2 == null) {
                                         echo "Última atualização: -";
                                     } else {
-                                        $date2 = date_create($exibir["Finalizado"]);
+                                        $date2 = date_create($exibir["Atualizacao"]);
                                         echo "Última atualização: " . date_format($date2, 'd/m/Y H:i');
                                     }
                                     ?>
                                 </div>
                                 <div class="opcoes-chamado">
                                     <div class="opcao-editar">
-                                        <a href="#" title="Editar" onclick="editarChamado('<?php echo $exibir['idInternet'] ?>','<?php echo $exibir['NumOS'] ?>')"><i class="fas fa-eye"></i></a>
+                                        <a href="#" title="Editar" onclick="editarChamado('<?php echo $exibir['idImpressora'] ?>','<?php echo $exibir['NumOS'] ?>')"><i class="fas fa-eye"></i></a>
                                     </div>
                                     <?php
                                     if ($exibir["Status"] == "Aguardando análise") {
                                     ?>
                                         <div class="opcao-excluir">
-                                            <a href="#" title="Excluir" onclick="excluirChamado('<?php echo $exibir['idInternet'] ?>','<?php echo $exibir['NumOS'] ?>', 'Computador')"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="#" title="Excluir" onclick="excluirChamado('<?php echo $exibir['idImpressora'] ?>','<?php echo $exibir['NumOS'] ?>', 'IMpressora')"><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     <?php
                                     }
@@ -140,7 +137,7 @@ $idServidor = $_SESSION['idServidor'];
                                     if ($exibir["Status"] == "Aguardando retirada") {
                                     ?>
                                         <div class="opcao-concluir">
-                                            <a href="#" title="Concluir o serviço" onclick="concluirChamado('<?php echo $exibir['idInternet'] ?>','<?php echo $exibir['NumOS'] ?>','Computador')"><i class="fa fa-handshake-o"></i></a>
+                                            <a href="#" title="Concluir o serviço" onclick="concluirChamado('<?php echo $exibir['idImpressora'] ?>','<?php echo $exibir['NumOS'] ?>','Computador')"><i class="fa fa-handshake-o"></i></a>
                                         </div>
                                     <?php
                                     }
@@ -158,40 +155,35 @@ $idServidor = $_SESSION['idServidor'];
                         <button onclick="abrirPassosResolucao()" id="abrirModal"> Clique aqui</button>
                     </div>
                 </div>
-
                 <div class="passos-problema" id="passos-problema" style="display: none;">
                     <div class="btn-fechar">
                         <button onclick="abrirPassosResolucao()"><img src="/Helpdesk/Image/icon-close.png" alt=""></button>
                     </div>
                     <div class="categoria-chamado">
-                        <img src="/Helpdesk/Image/icone-internet.png" alt="Imagem internet">
-                        <span>Internet</span>
+                        <img src="/Helpdesk/Image/icone-impressora.png" alt="Imagem impressora">
+                        <span>Impressora</span>
                     </div>
-                    <h2>Realize os testes abaixo:</h2>
-                    <h3>Teste 1:</h3>
-                    <ul>
-                        <li>Retire o equipamento de internet da tomada, aguarde 1 minuto e ligue novamente. Após 3 minutos o equipamento se estabilizará e voltará a conexão.</li>
-                    </ul>
-                    <h3>Teste 2:</h3>
-                    <ul>
-                        <li>Reinicie o computador e verifique se a conexão normalizou.</li>
-                    </ul>
-                    <h3>Teste 3:</h3>
-                    <ul>
-                        <li>Em caso de conexão via cabo de rede, verificar se o cabo está devidamente conectado no computador.</li>
-                    </ul>
+                    <h2>Siga os passos abaixo:</h2>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
+                    <span>PASSO</span>
                     <span>Caso problema não tenha sido resolvido: <a href="#" onclick="abrirModalChamado()">Abra um chamado!</a></span>
                 </div>
-
-
                 <div class="div-formulario-chamado" id="modalFormulario" style="display: none;">
                     <div class="btn-fechar">
                         <button onclick="abrirModalChamado()"><img src="/Helpdesk/Image/icon-close.png" alt=""></button>
                     </div>
                     <form action="#" class="formulario-chamado">
                         <div class="categoria-chamado">
-                            <img src="/Helpdesk/Image/icone-internet.png" alt="Imagem internet">
-                            <span>Internet</span>
+                            <img src="/Helpdesk/Image/icone-impressora.png" alt="Imagem impressora">
+                            <span>Impressora</span>
                         </div>
                         <div class="input-group-chamado">
                             <input type="text" name="local-chamado" placeholder="Local">
@@ -214,42 +206,41 @@ $idServidor = $_SESSION['idServidor'];
                             <input type="text" name="responsavel-chamado" placeholder="Responsável pelo chamado">
                         </div>
                         <div class="input-group-chamado">
+                            <input type="text" name="senha-chamado" placeholder="Senha do equipamento">
+                        </div>
+                        <div class="input-group-chamado">
+                            <input type="text" class="num-patrimonio-chamado" placeholder="Nº do chamado">
+                        </div>
+                        <div class="input-group-chamado">
                             <textarea name="descricao-problema" cols="60" rows="10" placeholder="Descrição do problema"></textarea>
                         </div>
                         <div class="span-itens">
-                            <label for="itens">Marque os itens a respeito:</label>
+                            <label for="itens">Marque os itens que você vai enviar junto com o equipamento:</label>
                         </div>
-                        <div class="outros">
-                            <div class="acessoInternet">
-                                <label for="acessoInternet">Todos os computadores estão sem acesso a internet?</label>
-                                <div class="opcoes">
-                                    <input type="radio" name="acessoInternet" id="acessoInternet" value="0">Não
-                                    <input type="radio" name="acessoInternet" id="acessoInternet" value="1">Sim
-                                </div>
+                        <div class="itens-chamado">
+                            <div class="checkbox-item">
+                                <input type="checkbox" value="Backup" name="outros[]">
+                                <label for="outros">Backup</label>
                             </div>
-
-                            <div class="sinal">
-                                <label for="sinal">No aparelho de distribuição da internet apresenta alguma luz vermelha?</label>
-                                <div class="opcoes">
-                                    <input type="radio" name="sinal" id="sinal" value="0">Não
-                                    <input type="radio" name="sinal" id="sinal" value="1">Sim
-                                </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" value="Fonte" name="outros[]">
+                                <label for="outros">Fonte</label>
                             </div>
-
-                            <div class="sites">
-                                <label for="sites">Outros sites estão carregando no navegador?</label>
-                                <div class="opcoes">
-                                    <input type="radio" name="sites" id="sinal" value="0" placeholder="Não">Não
-                                    <input type="radio" name="sites" id="sinal" value="1">Sim
-                                </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" value="Teclado" name="outros[]">
+                                <label for="outros">Teclado</label>
                             </div>
-
-                            <div class="formaConexao">
-                                <label for="formaConexao">Qual é o tipo de conexão a internet do equipamento?</label>
-                                <div class="opcoes">
-                                    <input type="radio" name="formaConexao" id="formaConexao" value="Wi-fi">Wi-fi
-                                    <input type="radio" name="formaConexao" id="formaConexao" value="Cabo de rede">Cabo de rede
-                                </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" value="Mouse" name="outros[]">
+                                <label for="outros">Mouse</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" value="Monitor" name="outros[]">
+                                <label for="outros">Monitor</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" value="Cabos" name="outros[]">
+                                <label for="outros">Cabos</label>
                             </div>
                         </div>
                         <div class="btn-enviar">
@@ -257,8 +248,6 @@ $idServidor = $_SESSION['idServidor'];
                         </div>
                     </form>
                 </div>
-
-
                 <div class="div-suporte" id="div-suporte" style="display: none;">
                     <div class="div-opcoes-suporte">
                         <div class="mensagem-opcao">

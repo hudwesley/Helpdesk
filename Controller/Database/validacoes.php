@@ -38,3 +38,4 @@ function verificaCPF($cpf, $conn)
         return false; // Retorna false em caso de erro
     }
 }
+
