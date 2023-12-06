@@ -125,7 +125,7 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
                     </a>
 
                     <!-- Cartão chamado impressora -->
-                    <a class="cartao-chamado" href="">
+                    <a class="cartao-chamado" href="/Helpdesk/View/Servidor/Chamados/chamados-impressora.php">
                         <div class="icone-chamado">
                             <img src="/Helpdesk/Image/icone-impressora.png" alt="Ícone impressora">
                         </div>

@@ -50,8 +50,8 @@ $idServidor = $_SESSION['idServidor'];
             <div class="div-tela-chamados">
                 <div class="legenda">
                     <div class="imagem-chamado">
-                        <img src="/Helpdesk/Image/icone-internet.png" alt="Ícone internet">
-                        <h2>Chamados - Internet</h2>
+                        <img src="/Helpdesk/Image/icone-impressora.png" alt="Ícone internet">
+                        <h2>Chamados - Impressora</h2>
                     </div>
                     <div class="tipos-status">
                         <span class="recusado"></span>
@@ -66,7 +66,7 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
                 <div class="meus-chamados">
                     <?php
-                    $sql = "SELECT * FROM Internet WHERE Servidor_idServidor = $idServidor ORDER BY CASE status
+                    $sql = "SELECT * FROM Impressora WHERE Servidor_idServidor = $idServidor ORDER BY CASE status
                         WHEN 'Aguardando retirada' THEN 1
                         WHEN 'Em análise' THEN 2
                         WHEN 'Aguardando análise' THEN 3
@@ -115,20 +115,20 @@ $idServidor = $_SESSION['idServidor'];
                                     if ($date2 == null) {
                                         echo "Última atualização: -";
                                     } else {
-                                        $date2 = date_create($exibir["Finalizado"]);
+                                        $date2 = date_create($exibir["Atualizacao"]);
                                         echo "Última atualização: " . date_format($date2, 'd/m/Y H:i');
                                     }
                                     ?>
                                 </div>
                                 <div class="opcoes-chamado">
                                     <div class="opcao-editar">
-                                        <a href="#" title="Editar" onclick="editarChamado('<?php echo $exibir['idInternet'] ?>','<?php echo $exibir['NumOS'] ?>')"><i class="fas fa-eye"></i></a>
+                                        <a href="#" title="Editar" onclick="editarChamado('<?php echo $exibir['idImpressora'] ?>','<?php echo $exibir['NumOS'] ?>')"><i class="fas fa-eye"></i></a>
                                     </div>
                                     <?php
                                     if ($exibir["Status"] == "Aguardando análise") {
                                     ?>
                                         <div class="opcao-excluir">
-                                            <a href="#" title="Excluir" onclick="excluirChamado('<?php echo $exibir['idInternet'] ?>','<?php echo $exibir['NumOS'] ?>', 'Computador')"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="#" title="Excluir" onclick="excluirChamado('<?php echo $exibir['idImpressora'] ?>','<?php echo $exibir['NumOS'] ?>', 'IMpressora')"><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     <?php
                                     }
@@ -137,7 +137,7 @@ $idServidor = $_SESSION['idServidor'];
                                     if ($exibir["Status"] == "Aguardando retirada") {
                                     ?>
                                         <div class="opcao-concluir">
-                                            <a href="#" title="Concluir o serviço" onclick="concluirChamado('<?php echo $exibir['idInternet'] ?>','<?php echo $exibir['NumOS'] ?>','Computador')"><i class="fa fa-handshake-o"></i></a>
+                                            <a href="#" title="Concluir o serviço" onclick="concluirChamado('<?php echo $exibir['idImpressora'] ?>','<?php echo $exibir['NumOS'] ?>','Computador')"><i class="fa fa-handshake-o"></i></a>
                                         </div>
                                     <?php
                                     }
@@ -160,8 +160,8 @@ $idServidor = $_SESSION['idServidor'];
                         <button onclick="abrirPassosResolucao()"><img src="/Helpdesk/Image/icon-close.png" alt=""></button>
                     </div>
                     <div class="categoria-chamado">
-                        <img src="/Helpdesk/Image/icone-internet.png" alt="Imagem internet">
-                        <span>Internet</span>
+                        <img src="/Helpdesk/Image/icone-impressora.png" alt="Imagem impressora">
+                        <span>Impressora</span>
                     </div>
                     <h2>Siga os passos abaixo:</h2>
                     <span>PASSO</span>
@@ -182,8 +182,8 @@ $idServidor = $_SESSION['idServidor'];
                     </div>
                     <form action="#" class="formulario-chamado">
                         <div class="categoria-chamado">
-                            <img src="/Helpdesk/Image/icone-internet.png" alt="Imagem internet">
-                            <span>Internet</span>
+                            <img src="/Helpdesk/Image/icone-impressora.png" alt="Imagem impressora">
+                            <span>Impressora</span>
                         </div>
                         <div class="input-group-chamado">
                             <input type="text" name="local-chamado" placeholder="Local">

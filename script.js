@@ -3,7 +3,7 @@
 function fadeIn(element) {
     element.style.display = 'flex';
     element.style.opacity = 0;
-
+    
     let opacity = 0;
     const fadeInInterval = setInterval(function() {
         if (opacity < 1) {
