@@ -145,7 +145,7 @@ $sessaoServidor = isset($_SESSION['idServidor']) ? true : false;
                     </a>
 
                     <!-- Cartão chamado ponto eletronico (velti) -->
-                    <a class="cartao-chamado" href="">
+                    <a class="cartao-chamado" href="/Helpdesk/View/Servidor/Chamados/chamados-ponto.php">
                         <div class="icone-chamado">
                             <img src="/Helpdesk/Image/icone-ponto-velti.png" alt="Ícone ponto">
                         </div>

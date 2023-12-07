@@ -260,7 +260,7 @@ $idServidor = $_SESSION['idServidor'];
                 </div>
                 <!-- Checkbox para itens que vão acompanhar o equipamento -->
                 <div class="span-itens">
-                    <label for="itens">Marque os itens que você vai enviar junto com o equipamento:</label>
+                    <label for="itens">Marque os itens que você vai enviar junto com o:</label>
                 </div>
                 <div class="itens-chamado">
                     <div class="checkbox-item">

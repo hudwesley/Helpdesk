@@ -39,3 +39,37 @@ function verificaCPF($cpf, $conn)
     }
 }
 
+
+// gerar o numero da OS
+function gerarNumeroOS($conn, $categoriaChamado)
+{
+    $id = "id" . $categoriaChamado;
+    $query = "SELECT MAX('$id') AS maxId FROM $categoriaChamado";
+    $consulta = $conn->query($query);
+    $dados = $consulta->fetch_assoc();
+
+    $maxId = $dados["maxId"] + 1;
+
+    $prefixo = "";
+
+    switch ($categoriaChamado) {
+        case "Computador":
+            $prefixo = "PMCL - CN";
+            break;
+        case "Internet":
+            $prefixo = "PMCL - IR";
+            break;
+        case "Impressora":
+            $prefixo = "PMCL - IMP";
+            break;
+        case "Ponto":
+            $prefixo = "PMCL - PE";
+            break;
+        default:
+            $_SESSION['erro'] = "true";
+            return;
+    }
+
+    return $prefixo . " - " . str_pad($maxId, 4, '0', STR_PAD_LEFT);
+}
+
